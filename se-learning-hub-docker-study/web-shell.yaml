@@ -2,9 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: web-shell
+  labels:
+    app: web-shell
 spec:
   containers:
     - name: ttyd
       image: kix.ocir.io/orasejapan/se-learning-hub/web-shell:latest
       ports:
-        - containerPort: 7681
+        - containerPort: 8080
