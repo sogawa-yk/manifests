@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-for-user-${USER_ID}
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /user/${USER_ID} # ユーザーIDをパスに含む
+            pathType: Prefix
+            backend:
+              service:
+                name: service-for-user-${USER_ID} # 対応するユーザーのサービス名
+                port:
+                  number: 80

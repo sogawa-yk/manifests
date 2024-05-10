@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-shell-service
+  name: web-service
   labels:
-    app: web-shell
+    app: web
   annotations:
     oci.oraclecloud.com/load-balancer-type: "lb"
     service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
@@ -14,7 +14,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 8080
-      targetPort: 7681
+      targetPort: 80
       nodePort: 30080
   selector:
-    app: web-shell
+    app: web
