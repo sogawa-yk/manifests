@@ -6,4 +6,7 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["get", "list", "watch", "create"] # `create` 権限を追加
+    verbs: ["get", "list", "watch", "create"] # Pod に対する権限
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch", "create"] # Service に対する権限

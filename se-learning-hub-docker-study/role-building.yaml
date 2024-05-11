@@ -9,5 +9,5 @@ subjects:
     namespace: default
 roleRef:
   kind: Role
-  name: pod-manager # 更新されたRole名に変更
+  name: pod-manager # 正しくRole名を参照
   apiGroup: rbac.authorization.k8s.io
