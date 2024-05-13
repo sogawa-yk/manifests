@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: cleanup-cronjob
 spec:
-  schedule: "00 9 * * *" # 4:15に実行する例。
+  schedule: "00 15 * * *" # 15:00に実行する例(UTC)。
   jobTemplate:
     spec:
       template:
