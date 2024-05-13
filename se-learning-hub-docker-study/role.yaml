@@ -1,12 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: default
+  namespace: se-learning-hub
   name: pod-manager
 rules:
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["get", "list", "watch", "create"] # Pod に対する権限
+    verbs: ["get", "list", "watch", "create", "delete"] # Pod に対する権限
   - apiGroups: [""]
     resources: ["services"]
-    verbs: ["get", "list", "watch", "create"] # Service に対する権限
+    verbs: ["get", "list", "watch", "create", "delete"] # Service に対する権限
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses"]
+    verbs: ["create", "get", "list", "watch", "delete", "update"]

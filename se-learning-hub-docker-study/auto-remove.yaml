@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleanup-cronjob
+spec:
+  schedule: "23 4 * * *" # 4:15に実行する例。
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cleanup
+              image: bitnami/kubectl
+              command:
+                [
+                  "kubectl",
+                  "delete",
+                  "pod,svc,ingress",
+                  "--selector=app=web-shell",
+                  "--namespace=se-learning-hub",
+                ]
+          restartPolicy: OnFailure
