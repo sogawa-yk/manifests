@@ -19,4 +19,4 @@ spec:
             - containerPort: 80
           env:
             - name: INGRESS_IP
-              value: "192.18.159.216"
+              value: "${INGRESS_IP}"
