@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: 4qiita-sample-db
+  name: 4qiita-sample-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 4qiita-sample-db
+  template:
+    metadata:
+      labels:
+        app: 4qiita-sample-db
+    spec:
+      containers:
+        - image: icn.ocir.io/orasejapan/4qiita-sample/db:latest
+          name: db

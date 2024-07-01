@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: 4qiita-sample-web
+  name: 4qiita-sample-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: 4qiita-sample-web
+  template:
+    metadata:
+      labels:
+        app: 4qiita-sample-web
+    spec:
+      containers:
+        - image: icn.ocir.io/orasejapan/4qiita-sample/web:latest
+          name: web
