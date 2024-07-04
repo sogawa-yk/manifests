@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+    - name: example-container
+      image: nginx
+      env:
+        - name: APP_COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: APP_COLOR
+        - name: APP_MODE2 # ConfigMapでの名前とは異なる名前
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: APP_MODE
