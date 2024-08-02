@@ -1,0 +1,27 @@
+backendStore:
+  databaseConnectionCheck: true
+  postgres:
+    enabled: true
+    host: "10.0.10.226"
+    port: 5432
+    database: "mlflow"
+    user: "postgres"
+    password: "We1comeOU2023#"
+readinessProbe:
+  httpGet:
+    path: /
+    port: 5000
+    httpHeaders:
+      - name: Host
+        value: "localhost"
+  initialDelaySeconds: 5
+  periodSeconds: 10
+artifactRoot:
+  s3:
+    enabled: true
+    bucket: "mlflow-artifacts"
+extraEnvVars:
+  MLFLOW_S3_ENDPOINT_URL: "https://orasejapan.compat.objectstorage.yyz.oraclecloud.com"
+  BUCKET_URL: "s3://mlflow-artifacts"
+  AWS_ACCESS_KEY_ID: "oracleidentitycloudservice/yuki.sogawa@oracle.com"
+  AWS_SECRET_ACCESS_KEY: "b{Wo9.47Hy.<2_(_:aV#"

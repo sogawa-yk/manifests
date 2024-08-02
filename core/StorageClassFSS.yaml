@@ -1,0 +1,10 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fss.csi.oraclecloud.com
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: fss.csi.oraclecloud.com
+parameters:
+  availabilityDomain: CA-TORONTO-1-AD-1
+  mountTargetOcid: ocid1.mounttarget.oc1.ca_toronto_1.aaaaaa4np2vdzrlppf4xullqojxwiotdmewxi33sn5xhi3zngewwczbngeaaaaaa
